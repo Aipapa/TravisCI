@@ -1,8 +1,9 @@
 language: android   # 声明构建语言环境
 notifications:      # 每次构建的时候是否通知，如果不想收到通知邮箱（个人感觉邮件贼烦），那就设置false吧
   email: false
+sudo: false
 
-  android:            # 配置信息
+android:            # 配置信息
     components:
       - tools                        # to get the new `repository-11.xml`
       - build-tools-25.0.2
@@ -12,8 +13,6 @@ notifications:      # 每次构建的时候是否通知，如果不想收到通�
       - extra-google-m2repository      # Google Play Services
 
 script:
-   - ./gradlew build connectedCheck
+   - ./gradlew build assembleRelease
 
 #To add support for lambda expressions, make sure to specify JDK 8 or higher:
- jdk:
-   - oraclejdk8
